@@ -1,0 +1,67 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+  "spacing": 0,
+  "margin": 0,
+
+  "modules-left": ["custom/launcher", "niri/workspaces", "niri/window"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "niri/language",
+    "pulseaudio",
+    "cpu",
+    "memory",
+  ],
+
+ "custom/launcher": {
+  "format": "Gengar user",
+  "tooltip": false,
+  "on-click": "dms ipc call powermenu toggle"
+}, 
+
+  "niri/workspaces": {
+    "format": "{index}"
+  },
+
+  "niri/window": {
+    "format": "{title}",
+    "max-length": 50,
+    "separate-outputs": true
+  },
+
+  "niri/language": {
+    "format": "{short}",
+    "on-click": "niri msg action switch-layout next"
+  },
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "format-alt": "{:%Y-%m-%d  %H:%M:%S}",
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+
+  "cpu": {
+    "format": "CPU {usage}%",
+    "interval": 3
+  },
+
+  "memory": {
+    "format": "RAM {percentage}%",
+    "interval": 5,
+    "tooltip-format": "{used:0.1f}G / {total:0.1f}G"
+  },
+  "pulseaudio": {
+    "format": "VOL {volume}%",
+    "format-muted": "VOL muted",
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "scroll-step": 5
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  }
+}
